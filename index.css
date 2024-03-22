@@ -771,3 +771,32 @@ h1{
     width: 100%;
     visibility: visible;
 }
+
+
+
+
+
+
+
+
+/* CELULAR */
+/* CELULAR */
+/* CELULAR */
+/* CELULAR */
+/* CELULAR */
+/* CELULAR */
+/* CELULAR */
+
+
+
+@media (max-width: 600px){
+    .barra_menu{
+        right: 0em;
+    }
+    .menu{
+        right:4vh;
+    }
+    .openmenu{
+        right: 1vh;
+    }
+}
