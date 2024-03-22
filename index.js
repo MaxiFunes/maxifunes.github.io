@@ -169,3 +169,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
+
+
+//scroll desabilitado por tiempo(carga de pagina)
+function deshabilitarScrollPorTiempo(tiempo) {
+  document.body.style.overflow = 'hidden';
+  setTimeout(function() {
+    document.body.style.overflow = '';
+  }, tiempo);
+}
+
+// Llama a la función cuando se carga la página
+window.addEventListener('load', function() {
+  deshabilitarScrollPorTiempo(4000); // Deshabilita el scroll durante 3 segundos (3000 milisegundos)
+});
