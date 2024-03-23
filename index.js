@@ -1,17 +1,22 @@
 
-// animcion del menu
+// animacion del menu
 function toggleMenu() {
-  var buttonmenu = document.getElementById("menu");
+  var buttonmenu1 = document.getElementById("menu");
+  var buttonmenu2 = document.getElementById("menu2");
   var linea1 = document.querySelector(".menu_linea1");
   var linea2 = document.querySelector(".menu_linea2");
+  var linea3 = document.querySelector(".menu2_linea1");
+  var linea4 = document.querySelector(".menu2_linea2");
   var menu = document.querySelector(".menu");
-  
-
 
   linea1.classList.toggle("open1");
   linea2.classList.toggle("open2");
-  buttonmenu.classList.toggle("buttonmove");
+  linea3.classList.toggle("open3");
+  linea4.classList.toggle("open4");
+  buttonmenu1.classList.toggle("buttonmove");
+  buttonmenu2.classList.toggle("buttonmove2");
   menu.classList.toggle("openmenu");
+
 }
 
 // barra scroll onoff
@@ -22,10 +27,15 @@ var isScrollingDown = lastScrollTop > 0 ? true : false;
 
 window.addEventListener("scroll", function() {
     var currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    var buttonmenu = document.getElementById("menu");
+    var buttonmenu1 = document.getElementById("menu");
+    var buttonmenu2 = document.getElementById("menu2");
     var linea1 = document.querySelector(".menu_linea1");
     var linea2 = document.querySelector(".menu_linea2");
+    var linea3 = document.querySelector(".menu2_linea1");
+    var linea4 = document.querySelector(".menu2_linea2");
     var menu = document.querySelector(".menu");
+
+
 
     if (currentScroll > lastScrollTop) {
         isScrollingDown = true;
@@ -37,13 +47,19 @@ window.addEventListener("scroll", function() {
         document.querySelector('.barra').classList.add('hidden');
         linea1.classList.remove("open1");
         linea2.classList.remove("open2");
-        buttonmenu.classList.remove("buttonmove");
+        linea3.classList.remove("open3");
+        linea4.classList.remove("open4");
+        buttonmenu1.classList.remove("buttonmove");
+        buttonmenu2.classList.remove("buttonmove2");
         menu.classList.remove("openmenu");
     } else {
         document.querySelector('.barra').classList.remove('hidden');
         linea1.classList.remove("open1");
         linea2.classList.remove("open2");
-        buttonmenu.classList.remove("buttonmove");
+        linea3.classList.remove("open3");
+        linea4.classList.remove("open4");
+        buttonmenu1.classList.remove("buttonmove");
+        buttonmenu2.classList.remove("buttonmove2");
         menu.classList.remove("openmenu");
     }
 
@@ -148,38 +164,3 @@ window.addEventListener('load', () => {
 
   
 
-
-
-
-// Función para desplazamiento suave al hacer clic en los enlaces
-
-
-
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    const target = document.querySelector(this.getAttribute('href'));
-    
-    // Desplazamiento suave
-    window.scrollTo({
-      top: target.offsetTop,
-      behavior: 'smooth'
-    });
-  });
-});
-
-
-//scroll desabilitado por tiempo(carga de pagina)
-function deshabilitarScrollPorTiempo(tiempo) {
-  document.body.style.overflow = 'hidden';
-  setTimeout(function() {
-    document.body.style.overflow = '';
-  }, tiempo);
-}
-
-// Llama a la función cuando se carga la página
-window.addEventListener('load', function() {
-  deshabilitarScrollPorTiempo(4000); // Deshabilita el scroll durante 3 segundos (3000 milisegundos)
-});

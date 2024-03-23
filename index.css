@@ -8,7 +8,7 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -moz-tap-highlight-color: rgba(0, 0, 0, 0);
     -ms-tap-highlight-color: rgba(0, 0, 0, 0);
-    tap-highlight-color: rgba(0, 0, 0, 0);
+    -tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /* Desactivar el efecto de resaltado solo en los hipervínculos */
@@ -16,15 +16,25 @@ a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -moz-tap-highlight-color: rgba(0, 0, 0, 0);
     -ms-tap-highlight-color: rgba(0, 0, 0, 0);
-    tap-highlight-color: rgba(0, 0, 0, 0);
+    -tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
+body::-webkit-scrollbar{
+    width: 1em;
+    background: #202020;
+}
+body::-webkit-scrollbar-thumb{
+    border: 2px solid #f6e9d7;
+    background: #f6e9d7;
+    border-radius: .6em;
+    box-shadow: 0 0 2em #f6e9d7;
+    border-left: 1px solid #202020;
+}
 /* Desactivar el efecto de resaltado solo en los botones */
 button {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -moz-tap-highlight-color: rgba(0, 0, 0, 0);
     -ms-tap-highlight-color: rgba(0, 0, 0, 0);
-    tap-highlight-color: rgba(0, 0, 0, 0);
+    -tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 html{
@@ -32,19 +42,26 @@ html{
 }
 /* intro */
 #in1{
-    display: flex;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     animation-delay: 4s;
-    height: 100vh;
+    height: fit-content;
     backdrop-filter: blur(20px);
     background: #202020;
-    z-index: -1;
+    z-index: 9999;
+    animation: sectexpand .7s ease forwards;
+    animation-delay: 1s;
+    overflow: visible;
+    transition: all 1s ease-out;
+}
+.barracarga{
+    position: absolute;
+    left: 0;
+    width: 100%;
 }
 .intro{
-    position: absolute;
     width: 100%;
     height: 100vh;
     z-index: 100;
@@ -58,11 +75,31 @@ html{
     animation: none;
     opacity: 1;
     transition: all .5s ease;
+    overflow: hidden;
 }
+.intro2{
+    width: 100%;
+    position: absolute;
+    height: fit-content;
+    z-index: 101;
+    top: 45vh;
+    background: transparent;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: none;
+    overflow: visible;
+    opacity: 1;
+    transition: all .5s ease;
+    animation: intro2 1s ease;
+    animation-delay: 1s;
+}
+
 .imagendein{
     height: 3em ;
     transition: all .5s ease-out;
-    animation: intro_img .5s ease-out forwards;
+    animation: intro_img .3s ease-out forwards;
 }
 .intro_div{
     overflow: hidden;
@@ -80,9 +117,10 @@ html{
     width: 0ch;
     transform: translateX(-12em);
     transition: all .5s ease;
-    animation: intro_p 1s ease-out forwards;
-    animation-delay: 1.5s;
+    animation: intro_p .5s ease forwards;
+    animation-delay: .4s;
     }
+
 
 /* Barra */
 /* Barra */
@@ -99,20 +137,23 @@ html{
     font-weight: 900;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 100;
     transition: all .3s ease;
 }
 .hidden{
-    transform: translateY(-10em);
+    transform: translateY(0vh);
     transition: all .3s ease;
 }
-.barra img {
-    height: 2em;
+.imagen1{
+    height: 1.9em;
     padding:0 1em;
+    transition: all .3s ease;
+    z-index: 2;
 }
 .barra a{
     text-decoration: none;
     color: #202020;
+    z-index: 0;
 }
 h1{
     display: flex;
@@ -123,14 +164,21 @@ h1{
     letter-spacing: .3em;
     width: 100%;
     text-align: start;
+    transition: all .3s ease;
     cursor: pointer;
+    z-index: 2;
+}
+.menuabiertoh1{
+    color: #f6e9d7;
+    z-index: 2;
+    transition: all .2s ease;
 }
 .barra_menu{
     content: "";
     position: absolute;
     width: 10vh;
     height: 10vh;
-    z-index: 2;
+    z-index: 0;
     right: 2em;
     display: flex;
     flex-direction: column;
@@ -157,18 +205,16 @@ h1{
     background: #202020;
     width: 2.7em;
     height: 1px;
-    transition: all .3s ease;
+    transition: all .4s ease;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .open1{
     transform: rotate(-45deg) translate(-5px);
-    background: #f6e9d7;
 }
 .open2{
     transform: rotate(45deg) translate(-5px);
-    background: #f6e9d7;
 }
 .buttonmove{
     transform: translateX(5px);
@@ -176,52 +222,37 @@ h1{
 .menu{
     display: flex;
     position: fixed;
-    align-items: right;
+    justify-content: space-around;
     list-style: none;   
     backdrop-filter: blur(8px);
     background-color: #202020;
-    top: 4vh;
-    width: 0;
-    height: 0;
-    right: 9vh;
+    width: 100%;
+    height: 85vh;
+    top: 0;
+    right: 0;
     transform: translateY(0em);
     overflow: hidden;
-    transition: all .2s ease;
+    transition: all .6s ease-in;
     color: #f6e9d7;
-    border-radius: 4em;
+    animation: openmenu2 .6s ease-in forwards;
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    padding:10vh 0 5vh 0 ;
+}
+.openmenu {/* hace que el menu aparezca */
+    transition: all .6s ease-in;
+    animation: openmenu1 .6s ease-in forwards;
 }
 
-.openmenu {/* hace que el menu aparezca */
-    right: 6vh;
-    transition: all .2s ease;
-    width: 20em;
-    height: 17em;
-    border-radius:1em ;
-    top: 1vh;
-    opacity: 1;
-    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.286);
-}
-.menu2{
-    position: absolute;
-    right: -4em;
-    top: -2vh;
-    min-width: 20em;
-    max-width: 20em;
-    min-height: 15em;
-    max-height: 15em;
-    padding: 2em;
-    display: flex;
-    padding-top: 1.5em;
-    background-color: #202020;
-}
 .menu ul{
     list-style: none;
     display: grid;
     position: relative;
     grid-template-rows: repeat(3, 1fr);
-    font-weight: 100;
-    width: 20em;
-    font-size: 1.7em;
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+    font-size: 5em;
+    letter-spacing: 10px;
     color: #f6e9d7;
 }
 .menu ul a{
@@ -232,7 +263,6 @@ h1{
 .menu_li1{
     cursor: pointer;
     font-family: "Playfair Display";
-    width: fit-content;
     padding: 0 .2em;
     font-weight: 300;
     color: #f6e9d7;
@@ -240,29 +270,104 @@ h1{
 .menu_li2{
     cursor: pointer;
     font-family: "Playfair Display";
-    width: fit-content;
     padding: 0 .2em;
     color: #f6e9d7;
 }
 .menu_li3{
     cursor: pointer;
     font-family: "Playfair Display";
-    width: fit-content;
     padding: 0 .2em;
     color: #f6e9d7;
 }
 .menu_li4{
     font-weight: 300;
-    margin-bottom: 1em;
     cursor: default;
     color: #f6e9d7;
+    width: 100%;
 }    
 
+/* BOTON DE MENU 2 PARA CAMBIAR EL COLOR CUANDO SE ABRE EL MENU */
+.barra_menu2{
+    content: "";
+    position: absolute;
+    width: 10vh;
+    height: 10vh;
+    z-index: 2;
+    top: 0;
+    right: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s ease;
+    background: none;
+    border: none;
+    gap: .5em;
+}
+.menu2_linea1{
+    content: "";
+    background: #f6e9d7;
+    width: 2.7em;
+    height: 1px;
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu2_linea2{
+    content: "";
+    background: #f6e9d7;
+    width: 2.7em;
+    height: 1px;
+    transition: all .4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.open3{
+    transform: rotate(-45deg) translate(-5px);
+}
+.open4{
+    transform: rotate(45deg) translate(-5px);
+}
+.buttonmove2{
+    transform: translateX(5px);
+}
 
 
-
-
-
+/* titulo cuando el menu esta abierto */
+.barra_a2{
+    position: absolute;
+    text-decoration: none;
+    color: #f6e9d7;
+    z-index: 2;
+    top: 0;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    left: 0;
+}
+.imagen2{
+    height: 1.9em;
+    padding:0 1em;
+    transition: all .3s ease;
+    z-index: 2;
+}
+.barra_h32{
+    color: #f6e9d7;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: .3em;
+    width: 100%;
+    text-align: start;
+    transition: all .3s ease;
+    cursor: pointer;
+    z-index: 2;
+}
 
 
 
@@ -286,16 +391,14 @@ h1{
     height: 120vh;
     display: flex;
     flex-direction: column;
-    padding-bottom: 20vh;
+    padding-bottom: 30vh;
     overflow: hidden;
-    background-color: #202020;
-    clip-path: circle(0.0001% at 50% 35%);
-    animation: sectexpand 1s ease forwards;
-    animation-delay: 3s;
+    background-color: #f6e9d7;
 }
 .section1_div1{
     margin: 1em 1em 1em .9em;
-    margin-top: 20vh;
+    margin-top: 30vh;
+    background-size: contain;
 }
 .section1_div1 div{
     display: flex;
@@ -303,9 +406,10 @@ h1{
 }
 /* contenedor del texto */
 .section1_div1{
+    color: #202020;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     overflow: hidden;
 }
 .section1_p{
@@ -536,9 +640,10 @@ h1{
 .section3{
     content: "";
     width: 100%;
-    height: 200vh;
+    height: 130vh;
     background-color: #f2e9dc;
-    box-shadow: 0 -1em 15em #f2e9dc;
+    box-shadow: 0 0 3em #f2e9dc;
+
 }
 .section3_div1{
     width: 100%;
@@ -784,16 +889,31 @@ h1{
 }
 
 @keyframes sectexpand {
-    0%{
-        background-color: #202020;
+    from{
+        transform: translateY(0);
     }
-    1%{
-    clip-path: circle(0.1% at 50% 35%);
-    background-color: #f6e9d7;
+    to{
+        transform: translateY(-180vh);
     }
-    100%{
-    background-color: #f6e9d7;
-    clip-path:circle(90% at 50% 35%);
+}
+@keyframes intro2{
+    from{ top: 45vh;}
+    to{top:205vh;}
+}
+@keyframes openmenu1 {
+    from{
+        clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    }
+    to{
+       clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+@keyframes openmenu2 {
+    from{
+       clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    to{
+       clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
     }
 }
 /* Observe interactions */
@@ -826,7 +946,8 @@ h1{
     /* intro */
 
     .intro{
-        height: 85vh;
+        height: 100vh;
+        top: 40vh;
     }
 
     /* menu */
@@ -839,20 +960,30 @@ h1{
     .open1, .open2{
         background: #202020;
     }
-    .menu{
-        width: 95%;
-        top: 7vh;
-        right:2.5%;
-        border-radius: 1em;
+    .barra_menu2{
+        right: 0;
+        top: -16px;
     }
-    .openmenu{
-        right:2.5%;
-        top:7vh;
+    .menu{
+        height: 100%;
+        align-items: center;
+        padding:0;
+    }
+    .menu ul{
+        font-size: 4em;
     }
     .menu2{
         right: auto;
         top:auto;
         padding: 4%;
+    }
+    .barra_a2{
+        height: 7vh;
+    }
+    h1{
+        user-select: none;
+        width: fit-content;
+        margin-left: 1em;
     }
 
 
