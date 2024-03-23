@@ -4,22 +4,44 @@
     margin: 0;
     padding: 0;
     font-family: "Lato";
+/* Desactivar el efecto de resaltado en todos los elementos */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+    -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+/* Desactivar el efecto de resaltado solo en los hipervínculos */
+a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+    -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Desactivar el efecto de resaltado solo en los botones */
+button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+    -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 html{
     background: #f6e9d7;
 }
 /* intro */
 #in1{
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    animation: intro_div 1s ease forwards;
     animation-delay: 4s;
     height: 100vh;
     backdrop-filter: blur(20px);
     background: #202020;
-    z-index: 99;
+    z-index: -1;
 }
 .intro{
     position: absolute;
@@ -40,7 +62,7 @@ html{
 .imagendein{
     height: 3em ;
     transition: all .5s ease-out;
-    animation: intro_img 2s ease-out forwards;
+    animation: intro_img .5s ease-out forwards;
 }
 .intro_div{
     overflow: hidden;
@@ -50,7 +72,7 @@ html{
 }
 .intro_p{
     display: flex;
-    font-weight: 600;
+    font-weight: 300;
     font-size: 1em;
     letter-spacing: .3em;
     color: #f6e9d7;
@@ -59,7 +81,7 @@ html{
     transform: translateX(-12em);
     transition: all .5s ease;
     animation: intro_p 1s ease-out forwards;
-    animation-delay: 2.5s;
+    animation-delay: 1.5s;
     }
 
 /* Barra */
@@ -75,7 +97,7 @@ html{
     display: flex;
     align-items: center;
     font-weight: 900;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 10;
     transition: all .3s ease;
@@ -90,7 +112,7 @@ html{
 }
 .barra a{
     text-decoration: none;
-    color: black;
+    color: #202020;
 }
 h1{
     display: flex;
@@ -122,7 +144,7 @@ h1{
 }
 .menu_linea1{
     content: "";
-    background: rgb(0, 0, 0);
+    background: #202020;
     width: 2.7em;
     height: 1px;
     transition: all .3s ease;
@@ -132,7 +154,7 @@ h1{
 }
 .menu_linea2{
     content: "";
-    background: rgb(0, 0, 0);
+    background: #202020;
     width: 2.7em;
     height: 1px;
     transition: all .3s ease;
@@ -162,24 +184,35 @@ h1{
     width: 0;
     height: 0;
     right: 9vh;
-    border-radius:1em ;
     transform: translateY(0em);
     overflow: hidden;
-    opacity: 0;
     transition: all .2s ease;
     color: #f6e9d7;
+    border-radius: 4em;
 }
 
 .openmenu {/* hace que el menu aparezca */
-    padding: 2em;
-    padding-top: 2em;
-    right: 4vh;
+    right: 6vh;
     transition: all .2s ease;
     width: 20em;
-    height: 13em;
+    height: 17em;
+    border-radius:1em ;
     top: 1vh;
     opacity: 1;
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.286);
+}
+.menu2{
+    position: absolute;
+    right: -4em;
+    top: -2vh;
+    min-width: 20em;
+    max-width: 20em;
+    min-height: 15em;
+    max-height: 15em;
+    padding: 2em;
+    display: flex;
+    padding-top: 1.5em;
+    background-color: #202020;
 }
 .menu ul{
     list-style: none;
@@ -251,11 +284,14 @@ h1{
     width: 80%;
     padding: 0 10%;
     height: 120vh;
-    background-color: #f6e9d7;
     display: flex;
     flex-direction: column;
     padding-bottom: 20vh;
     overflow: hidden;
+    background-color: #202020;
+    clip-path: circle(0.0001% at 50% 35%);
+    animation: sectexpand 1s ease forwards;
+    animation-delay: 3s;
 }
 .section1_div1{
     margin: 1em 1em 1em .9em;
@@ -271,49 +307,34 @@ h1{
     flex-direction: column;
     width: 100%;
     overflow: hidden;
-    z-index: 2;
-    white-space: nowrap;
-}
-/* contenedores de cada linea */
-.section1-div1 {
-    overflow: hidden;
-    width: 100%;
-    height: fit-content;
-    animation: revealtext .3s ease;
-}
-.section1-div2 {
-    overflow: hidden;
-    width: 100%;
-    height: fit-content;
-    animation: revealtext .6s ease;
-}
-.section1-div3 {
-    overflow: hidden;
-    width: 100%;
-    height: fit-content;
-    animation: revealtext 1s ease;
-}
-.section1-div4 {
-    overflow: hidden;
-    width: 100%;
-    height: min-content;
-    animation: revealtext 1.2s ease;
-}
-.section1-div5 {
-    overflow: hidden;
-    width: fit-content;
-    height: fit-content;
-    animation: revealtext 1.6s ease;
-
 }
 .section1_p{
     width: 100%;
     font-size: 2.3em;
     font-weight: 300;
     animation: revealtext .4s ease forwards;
-    animation-delay:4.3s;
+    animation-delay:.3s;
     transform: translateY(200px);
     overflow: hidden;
+}
+
+.section1_p::after{
+    content: "";
+    width: 100%;
+    position: relative;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+    background-color: #e78700;
+    height: 100%;
+}
+@keyframes revealText111 {
+    from {
+        top: 0; /* Animación de abajo hacia arriba */
+    }
+    to {
+        top: -100%; /* Muestra completamente el texto */
+    }
 }
 .section1_p b{
     font-family: "Playfair Display";
@@ -351,7 +372,7 @@ h1{
 }
 .section1_div2-button1{
     background: transparent;
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid #202020;
     white-space: nowrap;
     margin: .5em;
     font-size: 1.4em;
@@ -360,7 +381,7 @@ h1{
     cursor: pointer;
     font-weight: 600;
     font-family: "Playfair Display";
-    background-color: black;
+    background-color: #202020;
     color: #f6e9d7;
 }
 .section1_div2-button1:active{
@@ -369,7 +390,7 @@ h1{
 }
 .section1_div2-button2{
     background: transparent;
-    border: 2px solid black;
+    border: 2px solid #202020;
     margin: .5em;
     white-space: nowrap;
     padding:.5em;
@@ -416,7 +437,7 @@ h1{
     display: flex;
     flex-direction: column;
     width: fit-content;
-    border: 2px solid black;
+    border: 2px solid #202020;
     margin:1em;
     padding:0 1em;
     padding-top:.5em;
@@ -450,7 +471,7 @@ h1{
 }
 .section2_div2 div span{
     content: "";
-    background-color: black;
+    background-color: #202020;
     width: 200%;
     display: flex;
     align-items: center;
@@ -487,7 +508,7 @@ h1{
 }
 .section2_div2-img{
     height: 16em;
-    border: 1px  solid black;
+    border: 1px  solid #202020;
     background: rgba(246, 240, 240, 0);
     padding: 1em;
 }
@@ -574,13 +595,13 @@ h1{
     top: 10em;
     right: 0;
     gap: 2em;
-    color: black;
+    color: #202020;
     font-size: 1em;
 }
 
 .section4_div2-a i {
     font-size: 1.4em;
-    color: black;
+    color: #202020;
 }
 
 
@@ -622,7 +643,7 @@ h1{
     font-style: normal;
   }
   
-  .lato-black {
+  .lato-#202020 {
     font-family: "Lato", sans-serif;
     font-weight: 900;
     font-style: normal;
@@ -652,7 +673,7 @@ h1{
     font-style: italic;
   }
   
-  .lato-black-italic {
+  .lato-#202020-italic {
     font-family: "Lato", sans-serif;
     font-weight: 900;
     font-style: italic;
@@ -758,11 +779,23 @@ h1{
     }
 }
 @keyframes intro_img{
-    0%,20%,40%,60%,80%,100%{opacity: 1;}
-    10%,30%,50%,70%,90%{opacity: .2;}
+    from{filter: blur(20px); scale: 0.7;}
+    to{filter: blur(0);scale: 1.1;}
 }
 
-
+@keyframes sectexpand {
+    0%{
+        background-color: #202020;
+    }
+    1%{
+    clip-path: circle(0.1% at 50% 35%);
+    background-color: #f6e9d7;
+    }
+    100%{
+    background-color: #f6e9d7;
+    clip-path:circle(90% at 50% 35%);
+    }
+}
 /* Observe interactions */
 
 
@@ -790,13 +823,66 @@ h1{
 
 
 @media (max-width: 600px){
+    /* intro */
+
+    .intro{
+        height: 85vh;
+    }
+
+    /* menu */
+    .barra{
+        height: 7vh;
+    }
     .barra_menu{
         right: 0em;
     }
+    .open1, .open2{
+        background: #202020;
+    }
     .menu{
-        right:4vh;
+        width: 95%;
+        top: 7vh;
+        right:2.5%;
+        border-radius: 1em;
     }
     .openmenu{
-        right: 1vh;
+        right:2.5%;
+        top:7vh;
+    }
+    .menu2{
+        right: auto;
+        top:auto;
+        padding: 4%;
+    }
+
+
+
+
+    /* section1 */
+    /* section1 */
+    /* section1 */
+    /* section1 */
+    /* section1 */
+    /* section1 */
+    .section1{
+        width: 90%;
+        padding: 0 5%;
+        align-items: center;
+    }
+    .section1_div1{
+        margin:0;
+        margin-top: 50%;
+        width: fit-content;
+    }
+    .section1_p{
+        font-size: 1.8em;
+        text-align: center;
+    }
+    .section1-div5{
+        width: 100%;
+    }
+    .section1_div2-p1{
+        font-size: 1em;
+
     }
 }
