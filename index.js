@@ -118,25 +118,32 @@ window.addEventListener("scroll", function() {
 
 let firstLoad = true; // Variable para controlar la primera carga de la página
 
-// Observador 1: underlineobservador
-const underlineobservador = new IntersectionObserver((entries)=>{
+// Observador 1: section2
+const section2observador = new IntersectionObserver((entries)=>{
   entries.forEach(entry => {
     if (!firstLoad && entry.isIntersecting) { // Verifica si no es la primera carga y está intersectando
-      entry.target.classList.add('active');
+      body1.classList.add('active');
     } else {
-      // entry.target.classList.remove('active');
+      body1.classList.remove('active');
     }
   });
 },{
-  rootMargin:'-100px',
+  rootMargin:'-230px',
 });
 
-const underline1 = document.getElementById('spanobs');
-if (underline1) { // Verifica si el elemento existe antes de observarlo
-  underlineobservador.observe(underline1);
+const section2 = document.getElementById('section2');
+const body1 = document.getElementById('body');
+if (section2) { // Verifica si el elemento existe antes de observarlo
+  section2observador.observe(section2);
 }
 
+
+
+
 // Observador 2: textobservador
+
+
+
 const textobservador = new IntersectionObserver((entries)=>{
   entries.forEach(entry => {
     if (!firstLoad && entry.isIntersecting) { // Verifica si no es la primera carga y está intersectando
@@ -163,4 +170,22 @@ window.addEventListener('load', () => {
 });
 
   
+
+// animacion de movimiento de elementos
+
+
+
+// Detecta el evento de scroll
+window.addEventListener('scroll', function() {
+  var elemento = document.getElementById('sobremielemento');
+  var scrollPos = window.scrollY; // Obtenemos la posición de desplazamiento vertical
+
+  // Calculamos la nueva posición del elemento basada en el desplazamiento
+  var newPos = scrollPos / 8; // Puedes ajustar el factor de desplazamiento según sea necesario
+
+  // Aplicamos la nueva posición al elemento
+  elemento.style.top = newPos + 'px';
+});
+
+
 

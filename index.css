@@ -37,8 +37,9 @@ button {
     -tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-html{
-    background: #f6e9d7;
+.body{
+    transition: background-color .3s ease;
+    background-color: #f6e9d7;
 }
 /* intro */
 #in1{
@@ -51,10 +52,11 @@ html{
     backdrop-filter: blur(20px);
     background: #202020;
     z-index: 9999;
-    animation: sectexpand .7s ease forwards;
+    animation: sectexpand 1s ease forwards;
     animation-delay: 1s;
     overflow: visible;
     transition: all 1s ease-out;
+    user-select: none;
 }
 .barracarga{
     position: absolute;
@@ -383,13 +385,12 @@ h1{
     height: 120vh;
     display: flex;
     flex-direction: column;
-    padding-bottom: 30vh;
+    padding-bottom: 10vh;
     overflow: hidden;
-    background-color: #f6e9d7;
 }
 .section1_div1{
     margin: 1em 1em 1em .9em;
-    margin-top: 30vh;
+    margin-top: 40vh;
     background-size: contain;
 }
 .section1_div1 div{
@@ -445,11 +446,12 @@ h1{
     height: fit-content;
 }
 .section1_div2-p1{
-    font-size: 1.5em;
-    font-family: "Lato""Playfair Display";
+    font-size: 1.7em;
+    font-family: "Lato";
     font-weight: 900;
     padding: .5em ;
     width: fit-content;
+    color: #202020;
     white-space: nowrap;
 }
 .section1_div2-p2{
@@ -486,6 +488,7 @@ h1{
 }
 .section1_div2-button2{
     background: transparent;
+    color: #202020;
     border: 2px solid #202020;
     margin: .5em;
     white-space: nowrap;
@@ -523,19 +526,17 @@ h1{
 .section2{
     content: "";
     width: 100%;
-    height: 300vh;
-    padding-top: 8em;
+    height: 200vh;
     display: flex;
-    background-color: #f2e9dc;
     flex-direction: column;
 }
 .section2_div1{
     display: flex;
     flex-direction: column;
     width: fit-content;
+    position: relative;
     border: 2px solid #202020;
-    margin:1em;
-    padding:0 1em;
+    padding:0 1.5em;
     padding-top:.5em;
     height: fit-content;
     margin: 0 auto;
@@ -552,39 +553,26 @@ h1{
     height: 2em;
     position: relative;
     bottom: 2.5em;
-    background-color: #de9022;
+    background-color: #de902200;
     visibility: hidden;
     transition: all .3s ease;
 }
 .section2_div2{
     display: flex;
     margin: auto 0;
-    width: 100%;
-    padding: 2em 0%;
+    width: 80%;
+    padding: 4em 10%;
     overflow: hidden;
     gap: 2em;
-    justify-content: center;
-}
-.section2_div2 div span{
-    content: "";
-    background-color: #202020;
-    width: 200%;
-    display: flex;
-    align-items: center;
-    color: #f6e9d7;
-    user-select: none;
-    font-weight: 900;
-    font-size: 3em;
-    letter-spacing: .5em;
-    height: 2px;
-    margin: .5em 0;
+    padding-top: 40vh;
 }
 .section2_div2-p1{
     font-size: 1.2em;
     z-index: 1;
     min-width: 15em;
-    width: 20em;
+    width: 30em;
     font-weight: 900;
+    padding-bottom: 1em;
     height: fit-content;
     margin: auto 0;
     cursor: default;  
@@ -632,22 +620,52 @@ h1{
 .section3{
     content: "";
     width: 100%;
-    height: 130vh;
+    height: fit-content;
     background-color: #f2e9dc;
     box-shadow: 0 0 3em #f2e9dc;
+    overflow: hidden;
+    color: #202020;
 
 }
 .section3_div1{
-    width: 100%;
+    width: 100vw;
+    height: 90vh;
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+
 }
-.section3_div1-img{
+.section3_div1-p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: fit-content;
+    user-select: none;
+    height: 100%;
+    width: 100%;
+    font-size:10.2vw;
+    color: #202020;
+    white-space: nowrap;
     position: relative;
-    bottom: 3em;
-    height: 10em;
-    display: none;
+    font-family: "Playfair Display";
+    animation: scroll-ledwft 200s linear infinite alternate;
+    animation-delay: 1s;
+    font-weight: 400;
 }
+.section3_div2{
+    height: 100vh;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -798,7 +816,14 @@ h1{
     font-weight: 400;
     font-style: normal;
   }
-  
+
+@font-face {
+  font-family: 'Atomic Marker'; /* Nombre de la fuente */
+  src: url('fuentes/Set\ Sail\ Studios\ -\ Atomic\ Marker\ Regular.otf') format('opentype'), /* Ruta al archivo WOFF2 */
+       url('fuentes/Set\ Sail\ Studios\ -\ Atomic\ Marker\ Extras.otf') format('opentype'); /* Ruta al archivo WOFF */
+  /* Agrega otros formatos si los tienes disponibles */
+}
+
   
 
 
@@ -908,13 +933,29 @@ h1{
        clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
     }
 }
+
+@keyframes scroll-left {
+    0% {
+      transform: translateX(0); /* Inicio: Sin desplazamiento */
+    }
+    100% {
+      transform: translateX(-100%); /* Fin: Desplazamiento completo hacia la izquierda */
+    }
+  }
+  
+
+
+
+
+
+
+
 /* Observe interactions */
 
 
-.active {/* Subrayado */
-    transition: width .3s ease;
-    width: 100%;
-    visibility: visible;
+.active {/* cambio de color de section2 */
+    transition: background-color .3s ease;
+    background-color: #202020;
 }
 
 
