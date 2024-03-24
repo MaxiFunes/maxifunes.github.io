@@ -141,7 +141,6 @@ html{
     transition: all .3s ease;
 }
 .hidden{
-    transform: translateY(0vh);
     transition: all .3s ease;
 }
 .imagen1{
@@ -223,20 +222,16 @@ h1{
     display: flex;
     position: fixed;
     justify-content: space-around;
+    align-items: center;
     list-style: none;   
-    backdrop-filter: blur(8px);
     background-color: #202020;
     width: 100%;
-    height: 85vh;
+    height: 100%;
     top: 0;
-    right: 0;
-    transform: translateY(0em);
-    overflow: hidden;
     transition: all .6s ease-in;
     color: #f6e9d7;
     animation: openmenu2 .6s ease-in forwards;
     clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
-    padding:10vh 0 5vh 0 ;
 }
 .openmenu {/* hace que el menu aparezca */
     transition: all .6s ease-in;
@@ -246,8 +241,8 @@ h1{
 .menu ul{
     list-style: none;
     display: grid;
-    position: relative;
     grid-template-rows: repeat(3, 1fr);
+    gap: .3em;
     font-weight: 900;
     width: 100%;
     text-align: center;
@@ -263,20 +258,17 @@ h1{
 .menu_li1{
     cursor: pointer;
     font-family: "Playfair Display";
-    padding: 0 .2em;
     font-weight: 300;
     color: #f6e9d7;
 }
 .menu_li2{
     cursor: pointer;
     font-family: "Playfair Display";
-    padding: 0 .2em;
     color: #f6e9d7;
 }
 .menu_li3{
     cursor: pointer;
     font-family: "Playfair Display";
-    padding: 0 .2em;
     color: #f6e9d7;
 }
 .menu_li4{
@@ -966,11 +958,18 @@ h1{
     }
     .menu{
         height: 100%;
+        padding-bottom: 20%;
         align-items: center;
-        padding:0;
+        animation: openmenu2 .3s ease-in;
+        clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    }
+    .openmenu {/* hace que el menu aparezca */
+        transition: all .6s ease-in;
+        animation: openmenu1 .3s ease-in forwards;
     }
     .menu ul{
         font-size: 4em;
+        gap: .5em;
     }
     .menu2{
         right: auto;

@@ -34,7 +34,7 @@ window.addEventListener("scroll", function() {
     var linea3 = document.querySelector(".menu2_linea1");
     var linea4 = document.querySelector(".menu2_linea2");
     var menu = document.querySelector(".menu");
-
+  
 
 
     if (currentScroll > lastScrollTop) {
