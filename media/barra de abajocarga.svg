@@ -1,3 +1,13 @@
-<svg width="1590" height="135" viewBox="0 0 1590 135" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0V135C88.5 111 365.9 39.5 767.5 39.5C1165.06 39.5 1476.83 109.568 1586.71 134.261L1590 135V0H0Z" fill="#F5EFE5"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1590 135">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #202020;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <path class="cls-1" d="m0,0v135c88.5-24,365.9-95.5,767.5-95.5s709.33,70.07,819.21,94.76l3.29.74V0H0Z"/>
+  </g>
 </svg>
