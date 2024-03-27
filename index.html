@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body class="body" id="body">
-    <div id="in1">
+        <div id="in1">
         <div class="intro">
             <div class="intro2">
                 <img class="imagendein" src="media/logosinfondoclaro.svg" alt="img del logo">
@@ -34,46 +34,59 @@
             </div>
         </div>
         <img class="barracarga" src="media/barra de abajocarga.svg" alt="">
-    </div>
+        </div>
 
 
 
-        <header class="barra">
-
-            <a class="barra_a1" href="index.html"><h1 class="barra_h3"><img class="imagen1" src="media/logosinfondo.svg" >MAXIMO FUNES</h1></a>
+            <!-- BARRA Y MENU -->
+            <a class="barra_a1" href="index.html"><img class="imagen1" src="media/logosinfondo.svg" ></a>
             <button class="barra_menu" id="menu" onclick="toggleMenu()">
                 <span class="menu_linea1 span1"></span>
                 <span class="menu_linea2 span1"></span>
             </button>
             <div class="menu">
-                <a class="barra_a2" href="index.html"><h1 class="barra_h32"><img class="imagen2" src="media/logosinfondoclaro.svg" >MAXIMO FUNES</h1></a>
+                <a class="barra_a2" href="index.html"><img class="imagen2" src="media/logosinfondoclaro.svg" ></a>
                 <button class="barra_menu2" id="menu2" onclick="toggleMenu()">
                     <span class="menu2_linea1"></span>
                     <span class="menu2_linea2"></span>
                 </button>
-                <ul>
-                    <li class="menu_li4">MENU</li>
-                    <li class="menu_li1"><a href="#section1">INICIO</a></li>
-                    <li class="menu_li2"><a href="#section2">SOBRE MÍ</a></li>
-                    <li class="menu_li3"><a href="#section4">CONTACTO</a></li>
+                <ul class="menu_ul">
+                    <li class="menu_li1 menu_ul-li"><a class="menu_ul-a" href="#section1"><h3 class="menu_ul_li_a-h3">INICIO</h3></a></li>
+                    <li class="menu_li2 menu_ul-li"><a class="menu_ul-a" href="#section2"><h3 class="menu_ul_li_a-h3">SOBRE MÍ</h3></a></li>
+                    <li class="menu_li3 menu_ul-li"><a class="menu_ul-a" href="#section3"><h3 class="menu_ul_li_a-h3">PORTFOLIO</h3></a></li>
+                    <li class="menu_li4 menu_ul-li"><a class="menu_ul-a" href="#section4"><h3 class="menu_ul_li_a-h3">CONTACTO</h3></a></li>
+                    <li class="menu_li5">
+                        <!-- ICONOS DE CONTACTO DE MENU -->
+                        <div class="menu_li5-div">
+                            <a class="menu_li5-icon" href=""><i class='menu_icons bx bxl-linkedin'></i></a>
+                            <a class="menu_li5-icon" href=""><i class='menu_icons bx bxl-discord-alt'></i></a>
+                            <a class="menu_li5-icon" href=""><i class='menu_icons bx bxl-github'></i></a>
+                            <a class="menu_li5-icon" href=""><i class='menu_icons bx bxl-upwork' ></i></a>
+                        </div>
+                    </li>
                 </ul>
             </div>
-        </header>
 
 
 
         <!-- section 1 -->
 
         <section class="section1" id="section1">
-            <div class="section1_div1">
-                <p class="section1_p">En el <b>desarrollo frontend</b>, cada línea de código da forma a la experiencia del usuario, fusionando <b>diseño</b> y <b>funcionalidad</b> para crear interfaces <b>cautivadoras</b> y <b>eficientes</b>.</p>
+            <!-- VERSION COMPUTADORA-Pantallas medianas -->
+            <div class="inicio1">
+                <div class="inicio1_div1"><p class="compu1 inicio1_div1-p">TRANSFORMANDO</p><p class="compu1 inicio1_div1-p2">Ideas</p><p class="compu1 inicio1_div2-p">en</p></div>
+                <div class="inicio1_div2"><p class="compu1 inicio1_div2-p2">experiencias</p><p class="compu1 inicio1_div3-p">digitales</p></div>
+                <div class="inicio1_div3"><p class="compu1 inicio1_div3-p cel">digitales</p><p class="compu1 inicio1_div3-p2">cautivadoras</p></div>
+                <div class="inicio1_div4"><p class="compu1 inicio1_div4-p">Desarrollador Web & Diseñador Creativo · UI Designer</p></div>
             </div>
-            <div class="section1_div2">
-                <p class="section1_div2-p1">Desarrollador Web & Diseñador Creativo · UX/UI</p>
-                <div>
-                    <button class="section1_div2-button1">Ver Portfolio</button>
-                    <button class="section1_div2-button2">Contactar</button>
-                </div>
+            <!-- VERSION CELULAR -->
+            <div class="inicio2">
+                <div class="inicio2_div1"><p class="cel2 inicio2_div1-p">TRANSFORMANDO</p></div>
+                <div class="inicio2_div2"><p class="cel2 inicio2_div2-p2">Ideas</p><p class="cel2 inicio2_div2-p">en</p></div>
+                <div class="inicio2_div3"><p class="cel2 inicio2_div3-p2">experiencias</p></div>
+                <div class="inicio2_div4"><p class="cel2 inicio2_div4-p">digitales</p></div>
+                <div class="inicio2_div5"><p class="cel2 inicio2_div5-p2">cautivadoras</p></div>
+                <div class="inicio2_div6"><p class="cel2 inicio2_div6-p">Desarrollador Web & Diseñador Creativo · UI Designer</p></div>
             </div>
         </section>
 
@@ -84,36 +97,30 @@
            <!-- section 2  SOBRE MI -->
 
            <section class="section2" id="section2">
-            <div id="sobremielemento" class="section2_div1">
-                <p class="section2_p">Sobre</p>
-                <span id="spanobs" class="section2_p-span"></span>
-                <p class="section2_p">Mí</p>
-                <span id="spanobs2" class="section2_p-span"></span>
-            </div>
-            <div class="section2_div2">
-                <div>
-                    <p class="section2_div2-p1">
-                        ¡Hola! Soy Máximo Agustín Funes, un Desarrollador frontend y diseñador UX/UI argentino y estudiante de la Universidad de Mendoza. Desde mi infancia, la tecnología ha ejercido un poderoso magnetismo sobre mí; siempre me ha fascinado su funcionamiento y la magia detrás de las aplicaciones y sitios web que veía en pantalla.
-                    </p>
+            <!-- <div class="section2_div2">
+                <p class="section2_div2-p">En el <b>desarrollo frontend</b>, cada línea de código da forma a la experiencia del usuario, fusionando <b>diseño</b> y <b>funcionalidad</b> para crear interfaces <b>cautivadoras</b> y <b>eficientes</b>.</p>
+            </div> -->
+            <div class="section2_div1">
+                <div class="section2_div1-div1">
+                    <img src="media/darkvader.jpg" alt="una foto">
+                </div>
+                <div class="section2_div1-div2">
+                    <!-- descripcion -->
+                    <div class="section2_div1-div2-1"><p>¡Un gusto conocerte!</p></div>
+                    <div class="section2_div1-div2-2">
+                        <p>Mi nombre es <b>Máximo Agustín Funes</b>, un Desarrollador frontend y diseñador UI, estudiante de la Universidad de Mendoza en Argentina. Desde mi infancia, la tecnología ha ejercido un poderoso magnetismo sobre mí; siempre me ha fascinado su funcionamiento y la magia detrás de las aplicaciones y sitios web que veía en pantalla</p>
+                    </div>
+                    <!-- botones -->
+                    <div class="section2_div1-div2-3">
+                        <p class="section2_div3-p1">Disponible para trabajar</p>
+                        <div>
+                            <button class="section2_div3-button1">Ver más</button>
+                            <button class="section2_div3-button2">Contactar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="section2_div3">
-                <img class="section2_div3-img1" src="" alt="">
-                <img class="section2_div3-img1" src="" alt="">
-                <img class="section2_div3-img1" src="" alt="">
-                <img class="section2_div3-img1" src="" alt="">
-                <img class="section2_div3-img1" src="" alt="">
-                <img class="section2_div3-img1" src="" alt="">
-                <img class="section2_div3-img1" src="" alt="">
-                <img class="section2_div3-img1" src="" alt="">
-                <img class="section2_div3-img1" src="" alt="">
-            </div>
-            <div class="section2_div2">
-                <p class="section2_div2-p2"> 
-                    Con mi primera computadora, comencé a explorar lenguajes como HTML y CSS, ansioso por descubrir cómo podía dar vida a mis propias creaciones digitales. La capacidad de <b>transformar</b> lo que anteriormente parecía intocable me cautivó y me acercó aún más a lo que ahora considero mi <b>vocación</b>.
-                </p>
-                <img class="section2_div2-img" src="media/logosinfondo.svg" alt="foto del logo">
-            </div>
+            
 
         </section>
 

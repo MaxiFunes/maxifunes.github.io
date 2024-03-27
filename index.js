@@ -1,4 +1,3 @@
-
 // animacion del menu
 function toggleMenu() {
   var buttonmenu1 = document.getElementById("menu");
@@ -15,13 +14,18 @@ function toggleMenu() {
   linea4.classList.toggle("open4");
   buttonmenu1.classList.toggle("buttonmove");
   buttonmenu2.classList.toggle("buttonmove2");
-  menu.classList.toggle("openmenu");
-
+  // Verificar si la clase "openmenu" está presente
+  if (!menu.classList.contains("openmenu")) {
+    // Si no está presente, agregarla y eliminar "closemenu"
+    menu.classList.add("openmenu");
+    menu.classList.remove("closemenu");
+  } else {
+    // Si está presente, cambiar a "closemenu"
+    menu.classList.remove("openmenu");
+    menu.classList.add("closemenu");
+  }
 }
-
 // barra scroll onoff
-
-
 var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 var isScrollingDown = lastScrollTop > 0 ? true : false;
 
@@ -34,8 +38,6 @@ window.addEventListener("scroll", function() {
     var linea3 = document.querySelector(".menu2_linea1");
     var linea4 = document.querySelector(".menu2_linea2");
     var menu = document.querySelector(".menu");
-  
-
 
     if (currentScroll > lastScrollTop) {
         isScrollingDown = true;
@@ -66,115 +68,7 @@ window.addEventListener("scroll", function() {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
 
-
-
-
-
-
-// // FUNCION OBSERVE1
-
-
-
-// const underlineobservador = new IntersectionObserver((entries)=>{
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add('active');
-//     } else {
-//       entry.target.classList.remove('active');
-//     }
-//   });
-// },{
-//   rootMargin:'-100px',
-// });
-
-// const underline1 = document.getElementById('spanobs');
-
-// underlineobservador.observe(underline1);
-
-
-
-// // OBSERVER 2
-
-
-// const textobservador = new IntersectionObserver((entries)=>{
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add('show');
-//     } else {
-//       entry.target.classList.remove('show');
-//     }
-//   });
-// },{
-//   threshold: 1,
-//   rootMargin: '-100px',
-// });
-
-// const text1 = document.querySelectorAll('.section1_p')
-
-// textobservador.observe(text1);
-
-
-
-
-let firstLoad = true; // Variable para controlar la primera carga de la página
-
-// Observador 1: section2
-const section2observador = new IntersectionObserver((entries)=>{
-  entries.forEach(entry => {
-    if (!firstLoad && entry.isIntersecting) { // Verifica si no es la primera carga y está intersectando
-      body1.classList.add('active');
-    } else {
-      body1.classList.remove('active');
-    }
-  });
-},{
-  rootMargin:'-230px',
-});
-
-const section2 = document.getElementById('section2');
-const body1 = document.getElementById('body');
-if (section2) { // Verifica si el elemento existe antes de observarlo
-  section2observador.observe(section2);
-}
-
-
-
-
-// Observador 2: textobservador
-
-
-
-const textobservador = new IntersectionObserver((entries)=>{
-  entries.forEach(entry => {
-    if (!firstLoad && entry.isIntersecting) { // Verifica si no es la primera carga y está intersectando
-      entry.target.classList.add('show');
-    } else {
-      entry.target.classList.remove('show');
-    }
-  });
-},{
-  threshold: 1,
-  rootMargin: '-100px',
-});
-
-const text1 = document.querySelectorAll('.section1_p');
-if (text1.length > 0) { // Verifica si hay elementos para observar
-  text1.forEach(element => {
-    textobservador.observe(element);
-  });
-}
-
-// Cambia el estado de firstLoad después de que la página haya cargado completamente
-window.addEventListener('load', () => {
-  firstLoad = false;
-});
-
-  
-
 // animacion de movimiento de elementos
-
-
-
 // Detecta el evento de scroll
 window.addEventListener('scroll', function() {
   var elemento = document.getElementById('sobremielemento');
@@ -186,6 +80,83 @@ window.addEventListener('scroll', function() {
   // Aplicamos la nueva posición al elemento
   elemento.style.top = newPos + 'px';
 });
+// MOVIMIENTO DE CURSOR
+// Verificar si el dispositivo es una computadora
+const isDesktop = () => {
+  const userAgent = navigator.userAgent;
+  const desktopKeywords = ['Macintosh', 'Windows', 'Linux', 'Ubuntu'];
+  return desktopKeywords.some(keyword => userAgent.includes(keyword));
+};
 
+// Verificar si el dispositivo es un dispositivo móvil
+const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
 
+// Solo aplicar el efecto de movimiento al cursor en computadoras y no en dispositivos móviles
+if (isDesktop() && !isMobile()) {
+  const elements = document.querySelectorAll('.menu_icons, .barra_menu, .barra_menu2, .barra_a1');
 
+  elements.forEach(element => {
+    element.addEventListener('mousemove', (e) => {
+      const rect = element.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const dx = mouseX - centerX;
+      const dy = mouseY - centerY;
+
+      const maxDistance = 3000;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < maxDistance) {
+        const factor = 1 - (distance / maxDistance);
+        const translateX = (dx * factor) * 0.5;
+        const translateY = (dy * factor) * 0.5;
+        element.style.transform = `translate(${translateX}px, ${translateY}px) scale(1)`;
+      } else {
+        element.style.transform = 'scale(1)';
+      }
+    });
+
+    element.addEventListener('mouseleave', () => {
+      element.style.transform = 'scale(1)';
+    });
+  });
+}
+// cierre del menu al hacerle click
+document.addEventListener("DOMContentLoaded", function() {
+  var menu = document.querySelector('.menu');
+  var menulinea1 = document.querySelector('.menu_linea1');
+  var menu2linea1 = document.querySelector('.menu2_linea1');
+  var menulinea2 = document.querySelector('.menu_linea2');
+  var menu2linea2 = document.querySelector('.menu2_linea2');
+  var overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+  document.body.appendChild(overlay);
+
+  overlay.addEventListener('click', function() {
+      menu.classList.remove('openmenu');
+      menulinea1.classList.remove('open1');
+      menu2linea1.classList.remove('open3');
+      menulinea2.classList.remove('open2');
+      menu2linea2.classList.remove('open4');
+      overlay.style.display = 'none';
+  });
+
+  var menuItems = document.querySelectorAll('.menu_ul-a');
+  menuItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        menu.classList.remove('openmenu');
+        menu.classList.add('closemenu');
+        menulinea1.classList.remove('open1');
+        menu2linea1.classList.remove('open3');
+        menulinea2.classList.remove('open2');
+        menu2linea2.classList.remove('open4');
+        overlay.style.display = 'none';
+      });
+  });
+});
