@@ -79,7 +79,6 @@ button {
     animation: intro2 1s ease;
     animation-delay: 1s;
 }
-
 .imagendein{
     height: 3em ;
     transition: all .5s ease-out;
@@ -348,9 +347,6 @@ button {
 }
 .inicio2{
     display: none;
-    .cel2{
-        animation: none;
-    }
 }
 .inicio1 div{
     width: 100%;
@@ -1011,7 +1007,7 @@ button {
         color: #202020;
         font-family: "Brown Sugar";
         transform: translateY(-10em);
-        animation: textrotation2 2s ease forwards;
+        animation: textrotation1 2s ease forwards;
         animation-delay: .7s;
     
     }
@@ -1040,7 +1036,7 @@ button {
         color: #202020;
         font-family: "Brown Sugar";
         transform: translateY(-10em);
-        animation: textrotation2 2s ease forwards;
+        animation: textrotation1 2s ease forwards;
         animation-delay: 1s;
     }
     .inicio2_div4-p{
@@ -1066,7 +1062,7 @@ button {
         color: #202020;
         font-family: "Brown Sugar";
         transform: translateY(-10em);
-        animation: textrotation2 2s ease forwards;
+        animation: textrotation1 2s ease forwards;
         animation-delay: 1.3s;
     }
     .inicio2_div6-p{
