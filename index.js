@@ -160,3 +160,15 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   });
 });
+
+window.addEventListener('scroll', function() {
+  const menuscroll = document.querySelector('.menu');
+  // Solo ejecuta este código si el ancho de la ventana es menor que 768px
+  if (window.innerWidth < 768) {
+    // Comprueba si el menú está abierto
+    if (menuscroll.classList.contains('openmenu')) {
+      // Si es así, ciérralo
+      menuscroll.classList.remove('openmenu');
+    }
+  }
+});
