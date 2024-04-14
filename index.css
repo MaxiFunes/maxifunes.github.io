@@ -437,7 +437,7 @@ button {
 /* SECTION2 */
 .section2{
     width: 100%;
-    height: 170vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     padding-top: 10vh;
@@ -445,31 +445,27 @@ button {
     overflow: hidden;
 }
 .section2_div1{
-    width: 85%;
+    width: 75%;
     height: fit-content;
     display: flex;
+    align-items: center;
     justify-content:center;
 }
 .section2_div1-div1{
-    height: 100%;
     display: flex;
     align-items: center;
-
 }
 .section2_div1-div1 img{
     height:80vh;
     position: relative;
-    left: 20%;
 }
 .section2_div1-div2{
-    padding: 5em;
-    width: 50%;
+    width: auto;
     box-sizing: content-box;
     background-color: #202020;
     display: flex;
-    height: fit-content;
-    align-items: center;
-    gap: 2em;
+    height: 80vh;
+    align-items:center;
     justify-content: center;
     flex-direction: column;
 }
@@ -477,7 +473,6 @@ button {
     width: 80%;
     color: #f2e9dc;
     left: auto;
-    
 }
 .section2_div1-div2-1 p{
     font-family: "Playfair display";
@@ -506,19 +501,17 @@ button {
     flex-direction: row;
     width: 80% ;
     height: fit-content;
-    text-align: center;
-    justify-content: center;
+    text-align: left;
+    justify-content: space-between;
     align-items: center;
-    height: 2.5em;
-    border: 1px solid #f2e9dc;
     border-radius: 20em;
-    gap: 5px;
+    background-color: #f2e9dc;
 }
 .section2_div3-p1{
-    font-size: 1.2em;
-    font-family: "Lato";
-    font-weight: 900;
-    color: #f2e9dc;
+    font-size: 1.1em;
+    font-family: "Playfair Display";
+    font-weight:600;
+    color: #202020;
     white-space: nowrap;
     border-radius: 10em;
     box-sizing: border-box;
@@ -535,24 +528,29 @@ button {
     justify-content: center;
     align-content: center;
     width: 50%;
+    background: #202020;
+    border: #f2e9dc 2px solid;
+    border-radius: 10em;
+    height: 2em;
 }
 .section2_div3-button1{
     background: transparent;
-    border: 2px solid #f2e9dc;
+    border: none;
     white-space: nowrap;
-    font-size: 1.4em;
+    font-size: 1.2em;
     box-sizing: border-box;
     cursor: pointer;
-    font-weight: 600;
-    font-family: "Playfair Display";
-    background-color: #f2e9dc;
-    color: #202020;
+    font-family: "Lato";
+    background-color: #202020;
+    color: #f2e9dc;
     border-radius: 10em;
     width: 50%;
-    height: 110%;
+    transition: all .2s ease;
 }
 .section2_div3-button1:active{
-    text-decoration: underline;
+    transition: all .2s ease;
+    background-color: #f2e9dc;
+    color: #202020;
 }
 .section2_div3-button2{
     background: transparent;
@@ -560,19 +558,66 @@ button {
     border: none;
     height: 100%;
     white-space: nowrap;
-    font-size: 1.4em;
+    font-size: 1.2em;
     box-sizing: border-box;
     cursor: pointer;
-    font-family: "Playfair Display";
-    font-weight: 600;
+    font-family: "Lato";
     border-radius: 10em;
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .2s ease;
 }
 .section2_div3-button2:active{
-    text-decoration: underline;
+    transition: all .2s ease;
+    background-color: #f2e9dc;
+    color: #202020;
+}
+/* section2 hobbies */
+.section2_div2{
+    width: 75%;
+    height: 90vh;
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+    color: #202020;
+}
+.section2_div2-p{
+    font-size: 3em;
+    font-family: "Brown Sugar";
+    text-align: center;
+    width: 100%;
+    letter-spacing: 10px;
+}
+.section2_div2_div{
+    display: grid;
+    width: 100%;
+    gap: 1em;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto, 1fr);
+}
+.section2_div2_div div{
+    width: 100%;
+    padding: 0 5%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row ;
+    gap: .5em;
+    font-size: 1.3em;
+    box-sizing: border-box;
+    background-color: #2020201c;
+    border-radius: 1em;
+    cursor: pointer;
+}
+.section2_div2_div div i{
+    font-size: 1.2em;
 }
 /* SECTION 3 */
 .section3{
@@ -590,7 +635,6 @@ button {
     justify-content: center;
     overflow: hidden;
     align-items: center;
-
 }
 .section3_div1-p{
     display: flex;
@@ -605,7 +649,7 @@ button {
     color: #202020;
     white-space: nowrap;
     position: relative;
-    font-family: "Playfair Display";
+    font-family: "brown sugar";
     animation: scroll-ledwft 200s linear infinite alternate;
     animation-delay: 1s;
     font-weight: 400;
@@ -791,6 +835,23 @@ button {
     }
     100%{
         transform: translateY(0);
+    }
+}
+@keyframes img_reveal{
+    0%{
+        left: 100%;
+    }
+    80%{
+        left: -10%;
+        transform: rotate(-5deg);
+    }
+    85%{
+        z-index: -1;
+    }
+    100%{
+        transform: rotate(0);
+        left: 30%;
+        z-index: 1;
     }
 }
 /* Observe interactions */
