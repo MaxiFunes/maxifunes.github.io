@@ -172,3 +172,21 @@ window.addEventListener('scroll', function() {
     }
   }
 });
+
+const hobbiesDivs = document.querySelectorAll('.section2_div2_div-hobbies');
+
+    hobbiesDivs.forEach(div => {
+        div.addEventListener('mouseover', () => {
+            const hobbiesI = div.querySelector('.hobbies-i');
+            const hobbiesP = div.querySelector('.hobbies-p');
+            hobbiesI.classList.add('hovered-i'); // Añade una clase a hobbies-i cuando el mouse está encima
+            hobbiesP.classList.add('hovered-p'); // Añade una clase a hobbies-i cuando el mouse está encima
+        });
+
+        div.addEventListener('mouseout', () => {
+          const hobbiesI = div.querySelector('.hobbies-i');
+            const hobbiesP = div.querySelector('.hobbies-p');
+            hobbiesI.classList.remove('hovered-i'); // Elimina la clase cuando el mouse sale del elemento
+            hobbiesP.classList.remove('hovered-p'); // Elimina la clase cuando el mouse sale del elemento
+        });
+    });

@@ -583,6 +583,7 @@ button {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: all .3s ease;
     gap: 2em;
     color: #202020;
 }
@@ -593,31 +594,79 @@ button {
     width: 100%;
     letter-spacing: 10px;
 }
-.section2_div2_div{
+.section2_div2-hobbies-grid{
+    display: flex;
+    flex-direction:row ;
+    width: 100%;
+    gap: 1em;
+    transition: all .3s ease;
+    height: 100%;
+}
+.section2_div2-div1{
     display: grid;
     width: 100%;
     gap: 1em;
     height: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(auto, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+    transition: all .3s ease;
 }
-.section2_div2_div div{
-    width: 100%;
-    padding: 0 5%;
-    height: auto;
+.section2_div2_div-hobbies{
+    min-width: 25%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: row ;
-    gap: .5em;
+    transition: all .3s ease;
+    flex-direction: column ;
     font-size: 1.3em;
     box-sizing: border-box;
-    background-color: #2020201c;
+    background-color: #e2dace;
     border-radius: 1em;
     cursor: pointer;
+    overflow: hidden;
 }
-.section2_div2_div div i{
-    font-size: 1.2em;
+.section2_div2_div-hobbies:nth-child(3){
+    grid-column: span 2;
+}
+.section2_div2_div-hobbies:nth-child(5){
+    grid-column: span 2;
+}
+.section2_div2_div-hobbies:hover{
+    transition: all .3s ease;
+}
+.hobbies-i{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    transition: all .3s ease;
+    position: relative;
+    z-index: 10;
+    border-radius: 1em;
+    font-size: 1em;
+    width: 100%;
+    top: 50%;
+    height: 0px;
+}
+.hovered-i{
+    transition: all .3s ease;
+    top: -10%;
+}
+.hobbies-p{
+    font-size: .7em;
+    transition: all .3s ease;
+    position: relative;
+    height: 0px;
+    opacity: 0;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 100%;
+}
+.hovered-p{
+    transition: all .3s ease;
+    opacity: 1;
+    top: 50%;
 }
 /* SECTION 3 */
 .section3{
@@ -894,7 +943,18 @@ button {
     .inicio1_div4-p{
         font-size: 1em;
     }
-    
+    .section2_div2{
+        height: 150vh;
+    }
+    .section2_div2_div-hobbies:nth-child(3){
+        grid-column: span 1;
+    }
+    .section2_div2_div-hobbies:nth-child(6){
+        grid-column: span 2;
+    }
+    .section2_div2_div-hobbies:nth-child(5){
+        grid-column: span 2;
+    }
 }
 @media (max-width: 980px){
     .inicio1_div1-p{
@@ -918,7 +978,18 @@ button {
     .inicio1_div4-p{
         font-size: .9em;
     }
-    
+    .section2_div2{
+        height: 150vh;
+    }
+    .section2_div2_div-hobbies:nth-child(3){
+        grid-column: span 1;
+    }
+    .section2_div2_div-hobbies:nth-child(6){
+        grid-column: span 2;
+    }
+    .section2_div2_div-hobbies:nth-child(5){
+        grid-column: span 2;
+    }
 }
 @media (max-width: 870px){
     .inicio1_div1-p{
@@ -966,7 +1037,15 @@ button {
     .inicio1_div4-p{
         font-size: .9em;
     }
-    
+    .section2_div2_div-hobbies:nth-child(3){
+        grid-column: span 1;
+    }
+    .section2_div2_div-hobbies:nth-child(6){
+        grid-column: span 1;
+    }
+    .section2_div2_div-hobbies:nth-child(5){
+        grid-column: span 1;
+    }
 }
 
 
@@ -1152,5 +1231,17 @@ button {
     }
     .section2_div1-div2-1{
         white-space: nowrap;
+    }
+    .section2_div2{
+        height: 250vh;
+    }
+    .section2_div2_div-hobbies:nth-child(3){
+        grid-column: span 1;
+    }
+    .section2_div2_div-hobbies:nth-child(6){
+        grid-column: span 1;
+    }
+    .section2_div2_div-hobbies:nth-child(5){
+        grid-column: span 1;
     }
 }
