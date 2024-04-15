@@ -449,7 +449,8 @@ button {
     height: fit-content;
     display: flex;
     align-items: center;
-    justify-content:center;
+        flex-direction: row-reverse;
+        justify-content:center;
 }
 .section2_div1-div1{
     display: flex;
@@ -462,7 +463,7 @@ button {
 .section2_div1-div2{
     width: auto;
     box-sizing: content-box;
-    background-color: #202020;
+    background-color: #f2e9dc;
     display: flex;
     height: 80vh;
     align-items:center;
@@ -470,7 +471,7 @@ button {
     flex-direction: column;
 }
 .section2_div1-div2-1{
-    width: 80%;
+    width: 100%;
     color: #f2e9dc;
     left: auto;
 }
@@ -478,34 +479,32 @@ button {
     font-family: "Playfair display";
     font-size: 3em;
     font-weight: 300;
-    color: #f2e9dc;
+    color: #202020;
 
 }
 .section2_div1-div2-2{
-    width: 80%;
+    width: 100%;
     height: 60%;
     display: flex;
     align-items: center;
 }
 .section2_div1-div2-2 p{
     font-size: 1.3em;
-    color: #f2e9dc;
+    color: #202020;
     font-weight: 300;
 }
 .section2_div1-div2-2 p b{
     font-size: 1em;
-    color: #f2e9dc;
+    color: #202020;
 }
 .section2_div1-div2-3{
     display: flex;
     flex-direction: row;
-    width: 80% ;
+    justify-content: start;
+    align-items: left;
+    width: 100% ;
     height: fit-content;
-    text-align: left;
-    justify-content: space-between;
-    align-items: center;
     border-radius: 20em;
-    background-color: #f2e9dc;
 }
 .section2_div3-p1{
     font-size: 1.1em;
@@ -517,19 +516,19 @@ button {
     box-sizing: border-box;
     transition: all .2s ease;
     cursor: default;
-    width: 50%;
+    padding: 0 5% 0 0;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 .section2_div1-div2-3 div{
     display: flex;
     justify-content: center;
     align-content: center;
     width: 50%;
-    background: #202020;
-    border: #f2e9dc 2px solid;
+    background: #f2e9dc;
+    border: #202020 1px solid;
     border-radius: 10em;
     height: 2em;
 }
@@ -541,23 +540,24 @@ button {
     box-sizing: border-box;
     cursor: pointer;
     font-family: "Lato";
-    background-color: #202020;
-    color: #f2e9dc;
+    background-color: #f2e9dc;
+    color: #202020;
     border-radius: 10em;
     width: 50%;
     transition: all .2s ease;
 }
 .section2_div3-button1:active{
     transition: all .2s ease;
-    background-color: #f2e9dc;
-    color: #202020;
+    background-color: #202020;
+    color: #f2e9dc;
 }
 .section2_div3-button2{
     background: transparent;
-    color: #f2e9dc;
+    color: #202020;
     border: none;
     height: 100%;
     white-space: nowrap;
+    background-color: #f2e9dc;
     font-size: 1.2em;
     box-sizing: border-box;
     cursor: pointer;
@@ -571,8 +571,8 @@ button {
 }
 .section2_div3-button2:active{
     transition: all .2s ease;
-    background-color: #f2e9dc;
-    color: #202020;
+    background-color: #202020;
+    color: #f2e9dc;
 }
 /* section2 hobbies */
 .section2_div2{
@@ -611,14 +611,14 @@ button {
     transition: all .3s ease;
 }
 .section2_div2_div-hobbies{
-    min-width: 15%;
+    min-width: 25%;
     display: flex;
     align-items: center;
     transition: all .3s ease;
     flex-direction: column ;
     font-size: 1.3em;
     box-sizing: border-box;
-    background-color: #e2dace;
+    background-color: #dfd8cd;
     border-radius: 1em;
     cursor: pointer;
     overflow: hidden;
@@ -649,7 +649,13 @@ button {
 }
 .hovered-i{
     transition: all .3s ease;
-    top: -10%;
+    top: 0%;
+    opacity: 0;
+}
+.hovered-i-cel{
+    transition: all .3s ease;
+    top: 15%;
+    opacity: 1;
 }
 .hobbies-p{
     font-size: .7em;
@@ -1218,22 +1224,46 @@ button {
     /* Section2 */
     .section2_div1{
         flex-direction: column-reverse;
+        width: 100%;
     }
     .section2_div1-div1{
         justify-content: center;
-        height: 50vh;
+        display: none;
+        width: 100%;
+        height: 40vh;
+        background-color: #202020;
     }
     .section2_div1-div1 img{
-        height: 50vh;
+        height: 35vh;
+        width: auto;
     }
     .section2_div1-div2{
-        width: 90%;
+        width: 100%;
+        height: 60vh;
     }
     .section2_div1-div2-1{
         white-space: nowrap;
     }
+    .section2_div1-div2-1 p{
+        font-family: "Playfair display";
+        font-size: 1.2em;
+    }
     .section2_div2{
         height: 250vh;
+    }
+    .section2_div1-div2-2 p{
+        font-size: 1.1em;
+        font-weight: 300;
+    }
+    .section2_div3-p1{
+        font-size: .8em;
+        font-weight: 600;
+    }
+    .section2_div3-button1{
+        font-size: .8em;
+    }
+    .section2_div3-button2{
+        font-size: .8em;
     }
     .section2_div2_div-hobbies:nth-child(3){
         grid-column: span 1;

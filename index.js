@@ -190,3 +190,54 @@ const hobbiesDivs = document.querySelectorAll('.section2_div2_div-hobbies');
             hobbiesP.classList.remove('hovered-p'); // Elimina la clase cuando el mouse sale del elemento
         });
     });
+
+// Función que se ejecutará cuando el elemento intersecte con el viewport
+function handleIntersection(entries, observer) {
+  entries.forEach(entry => {
+    // Si el div está completamente dentro del viewport
+    if (entry.isIntersecting) {
+      // Añadir clase al div
+      entry.target.classList.add('active');
+      // Dejar de observar el div una vez que se le haya añadido la clase
+      observer.unobserve(entry.target);
+    }
+  });
+}
+// obeserver de hobbies
+// Función que se ejecutará cuando el elemento intersecte con el viewport
+function handleIntersection(entries, observer) {
+  // Verificar si el dispositivo es un móvil
+  const isMobile = window.innerWidth <= 768; // Puedes ajustar este valor según tu definición de "móvil"
+
+  entries.forEach(entry => {
+    // Si el div está completamente dentro del viewport y es un dispositivo móvil
+    if (entry.isIntersecting && isMobile) {
+      const hobbiesI = entry.target.querySelector('.hobbies-i');
+      const hobbiesP = entry.target.querySelector('.hobbies-p');
+      hobbiesI.classList.add('hovered-i-cel');
+      hobbiesP.classList.add('hovered-p');
+    } else {
+      // Quitar clase del div si sale del viewport o no es un dispositivo móvil
+      const hobbiesI = entry.target.querySelector('.hobbies-i');
+      const hobbiesP = entry.target.querySelector('.hobbies-p');
+      hobbiesI.classList.remove('hovered-i-cel');
+      hobbiesP.classList.remove('hovered-p');
+    }
+  });
+}
+
+// Crear una instancia del Intersection Observer
+const observer = new IntersectionObserver(handleIntersection, {
+  // Configuración del Intersection Observer
+  root: null, // El viewport es el contenedor de referencia
+  rootMargin: '-300px', // Margen del viewport
+  threshold: 0 // Se activa cuando el elemento entra o sale del viewport
+});
+
+// Obtener todos los divs que se quieren observar
+const items = document.querySelectorAll('.section2_div2_div-hobbies');
+
+// Observar cada div
+items.forEach(item => {
+  observer.observe(item);
+});
