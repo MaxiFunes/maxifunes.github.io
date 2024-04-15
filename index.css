@@ -611,7 +611,7 @@ button {
     transition: all .3s ease;
 }
 .section2_div2_div-hobbies{
-    min-width: 25%;
+    min-width: 15%;
     display: flex;
     align-items: center;
     transition: all .3s ease;
