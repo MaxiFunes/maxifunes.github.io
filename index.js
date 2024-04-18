@@ -179,17 +179,22 @@ const hobbiesDivs = document.querySelectorAll('.section2_div2_div-hobbies');
         div.addEventListener('mouseover', () => {
             const hobbiesI = div.querySelector('.hobbies-i');
             const hobbiesP = div.querySelector('.hobbies-p');
+            const hobbiesIMG = div.querySelector('.hobbies-img-p');
             hobbiesI.classList.add('hovered-i'); // Añade una clase a hobbies-i cuando el mouse está encima
             hobbiesP.classList.add('hovered-p'); // Añade una clase a hobbies-i cuando el mouse está encima
+            hobbiesIMG.classList.add('hovered-img-p');
         });
 
         div.addEventListener('mouseout', () => {
           const hobbiesI = div.querySelector('.hobbies-i');
-            const hobbiesP = div.querySelector('.hobbies-p');
+          const hobbiesP = div.querySelector('.hobbies-p');
+            const hobbiesIMG = div.querySelector('.hobbies-img-p');
             hobbiesI.classList.remove('hovered-i'); // Elimina la clase cuando el mouse sale del elemento
             hobbiesP.classList.remove('hovered-p'); // Elimina la clase cuando el mouse sale del elemento
+            hobbiesIMG.classList.remove('hovered-img-p'); // Elimina la clase cuando el mouse sale del elemento
+
         });
-    });
+});
 
 // Función que se ejecutará cuando el elemento intersecte con el viewport
 function handleIntersection(entries, observer) {
@@ -215,13 +220,13 @@ function handleIntersection(entries, observer) {
       const hobbiesI = entry.target.querySelector('.hobbies-i');
       const hobbiesP = entry.target.querySelector('.hobbies-p');
       hobbiesI.classList.add('hovered-i-cel');
-      hobbiesP.classList.add('hovered-p');
+      hobbiesP.classList.add('hovered-p-cel');
     } else {
       // Quitar clase del div si sale del viewport o no es un dispositivo móvil
       const hobbiesI = entry.target.querySelector('.hobbies-i');
       const hobbiesP = entry.target.querySelector('.hobbies-p');
       hobbiesI.classList.remove('hovered-i-cel');
-      hobbiesP.classList.remove('hovered-p');
+      hobbiesP.classList.remove('hovered-p-cel');
     }
   });
 }
@@ -230,7 +235,7 @@ function handleIntersection(entries, observer) {
 const observer = new IntersectionObserver(handleIntersection, {
   // Configuración del Intersection Observer
   root: null, // El viewport es el contenedor de referencia
-  rootMargin: '-300px', // Margen del viewport
+  rootMargin: '-350px', // Margen del viewport
   threshold: 0 // Se activa cuando el elemento entra o sale del viewport
 });
 
@@ -240,4 +245,19 @@ const items = document.querySelectorAll('.section2_div2_div-hobbies');
 // Observar cada div
 items.forEach(item => {
   observer.observe(item);
+});
+// Muesstra la descripcion de imgs
+const hobbiesImgs = document.querySelectorAll('.section2_div2_div-foto');
+
+    hobbiesImgs.forEach(div => {
+        div.addEventListener('mouseover', () => {
+            const hobbiesIMG = div.querySelector('.hobbies-img-p');
+            hobbiesIMG.classList.add('hovered-img-p');
+        });
+
+        div.addEventListener('mouseout', () => {
+            const hobbiesIMG = div.querySelector('.hobbies-img-p');
+            hobbiesIMG.classList.remove('hovered-img-p'); // Elimina la clase cuando el mouse sale del elemento
+
+        });
 });
